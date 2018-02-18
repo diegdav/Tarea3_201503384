@@ -13,18 +13,17 @@ public class Menu {
     Scanner teclado = new Scanner(System.in);
     int opcion;
 
-    public Menu() {
-    }
-
+    Usuario usuario = new Usuario();
+    
     public void principal() {
         do {
             System.out.println("1. Usuarios \n2. Contador de digitos \n3. Tres numeros de mayor a menor "
                     + "\n4. Calcular promedio \n5. Salir");
             opcion = teclado.nextInt();
-            
+
             switch (opcion) {
                 case 1:
-                    System.out.println("Opcion 1");
+                    usuario.menu();
                     break;
                 case 2:
                     System.out.println("Opcion 2");
@@ -39,7 +38,7 @@ public class Menu {
                     exit();
                     break;
                 default:
-                    System.out.println("Opcion incorrecta.");
+                    System.out.println("Opcion incorrecta. Intente de nuevo.\n");
                     principal();
             }
         } while (opcion < 1 || opcion > 5);
