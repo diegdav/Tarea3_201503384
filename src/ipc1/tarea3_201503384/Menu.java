@@ -11,10 +11,11 @@ import static javafx.application.Platform.exit;
 public class Menu {
 
     Scanner teclado = new Scanner(System.in);
-    int opcion;
+    private int opcion;
 
     Usuario usuario = new Usuario();
-    
+    ContadorDigitos contadorDigitos = new ContadorDigitos();
+
     public void principal() {
         do {
             System.out.println("1. Usuarios \n2. Contador de digitos \n3. Tres numeros de mayor a menor "
@@ -26,8 +27,8 @@ public class Menu {
                     usuario.menu();
                     break;
                 case 2:
-                    System.out.println("Opcion 2");
-                    break;
+                    contadorDigitos.menu(); 
+                   break;
                 case 3:
                     System.out.println("Opcion 3");
                     break;
