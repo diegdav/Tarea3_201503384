@@ -15,7 +15,7 @@ public class Usuario {
 
     Scanner teclado = new Scanner(System.in);
     private final String[] nombre_usuario;
-
+    
     public Usuario() {
         nombre_usuario = new String[5];
     }
@@ -34,13 +34,15 @@ public class Usuario {
                     ingresarUsuarios();
                     break;
                 case 2:
-                    System.out.println("Opcion 2");
+                    usuariosAscendente();
                     break;
                 case 3:
-                    System.out.println("Opcion 3");
+                    usuariosDescendente();
                     break;
                 case 4:
-                    System.out.println("Opcion 4");
+                    System.out.println("");
+                    Menu menuPrincipal = new Menu();
+                    menuPrincipal.principal();
                     break;
                 default:
                     System.out.println("Opcion incorrecta. Intente de nuevo.\n");
@@ -55,9 +57,21 @@ public class Usuario {
             System.out.print("Ingrese el nombre de usuario: ");
             nombre_usuario[i] = teclado.next();
         }
-        
+        menu();
+    }
+
+    public void usuariosAscendente() {
+        int i;
+        for (i = 4; i >= 0; i--) {
+            System.out.println(nombre_usuario[i]);
+        }
+        menu();
+    }
+    
+    public void usuariosDescendente() {
         for(String recorrido: nombre_usuario){
             System.out.println(recorrido);
         }
+        menu();
     }
 }
