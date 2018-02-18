@@ -33,6 +33,8 @@ public class ContadorDigitos {
                     Menu menuPrincipal = new Menu();
                     menuPrincipal.principal();
                     break;
+                default:
+                    System.out.println("Opcion incorrecta. Intente de nuevo.\n");
             }
         } while (opcion < 1 || opcion > 3);
     }
