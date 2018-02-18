@@ -15,6 +15,7 @@ public class Menu {
 
     Usuario usuario = new Usuario();
     ContadorDigitos contadorDigitos = new ContadorDigitos();
+    MayorMenor mayormenor = new MayorMenor();
 
     public void principal() {
         do {
@@ -30,7 +31,7 @@ public class Menu {
                     contadorDigitos.menu(); 
                    break;
                 case 3:
-                    System.out.println("Opcion 3");
+                    mayormenor.menu();
                     break;
                 case 4:
                     System.out.println("Opcion 4");
