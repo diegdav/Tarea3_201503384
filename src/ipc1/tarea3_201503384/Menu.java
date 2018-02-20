@@ -7,7 +7,6 @@ package ipc1.tarea3_201503384;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import static javafx.application.Platform.exit;
 
 public class Menu {
 
