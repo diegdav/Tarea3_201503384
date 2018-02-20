@@ -5,6 +5,7 @@
  */
 package ipc1.tarea3_201503384;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -15,37 +16,42 @@ public class Usuario {
 
     Scanner teclado = new Scanner(System.in);
     private final String[] nombre_usuario;
-    
+    private int opcion;
+
     public Usuario() {
         nombre_usuario = new String[5];
     }
 
     public void menu() {
-        int opcion;
+        opcion = 0;
 
         do {
-            System.out.println("\n1. Ingresar usuarios \n2. Mostrar usuarios ascendente \n3. Mostrar usuario"
-                    + " descendente \n4. Menu Principal");
-            opcion = teclado.nextInt();
+            try {
+                System.out.println("\nIngrese a una opcion (1-4): \n1. Ingresar usuarios \n2. Mostrar usuarios ascendente \n3. Mostrar usuario"
+                        + " descendente \n4. Menu Principal");
+                opcion = teclado.nextInt();
 
-            switch (opcion) {
-                case 1:
-                    System.out.println("");
-                    ingresarUsuarios();
-                    break;
-                case 2:
-                    usuariosAscendente();
-                    break;
-                case 3:
-                    usuariosDescendente();
-                    break;
-                case 4:
-                    System.out.println("");
-                    Menu menuPrincipal = new Menu();
-                    menuPrincipal.principal();
-                    break;
-                default:
-                    System.out.println("Opcion incorrecta. Intente de nuevo.\n");
+                switch (opcion) {
+                    case 1:
+                        System.out.println("");
+                        ingresarUsuarios();
+                        break;
+                    case 2:
+                        usuariosAscendente();
+                        break;
+                    case 3:
+                        usuariosDescendente();
+                        break;
+                    case 4:
+                        System.out.println("");
+                        Menu menuPrincipal = new Menu();
+                        menuPrincipal.principal();
+                        break;
+                    default:
+                        System.out.println("Opcion incorrecta. Intente de nuevo.\n");
+                }
+            } catch (InputMismatchException e) {
+                teclado.nextLine();
             }
         } while (opcion < 1 || opcion > 4);
     }
@@ -67,9 +73,9 @@ public class Usuario {
         }
         menu();
     }
-    
+
     public void usuariosDescendente() {
-        for(String recorrido: nombre_usuario){
+        for (String recorrido : nombre_usuario) {
             System.out.println(recorrido);
         }
         menu();
