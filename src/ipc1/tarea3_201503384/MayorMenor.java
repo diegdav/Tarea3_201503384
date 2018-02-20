@@ -5,6 +5,7 @@
  */
 package ipc1.tarea3_201503384;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -23,30 +24,35 @@ public class MayorMenor {
     }
 
     public void menu() {
+        opcion = 0;
         do {
-            System.out.println("\n1. Ingresar numeros \n2. Mostrar ordenados \n3. Menu principal");
-            opcion = teclado.nextInt();
+            try {
+                System.out.println("\nIngrese a una opcion (1-3): \n1. Ingresar numeros \n2. Mostrar ordenados \n3. Menu principal");
+                opcion = teclado.nextInt();
 
-            switch (opcion) {
-                case 1:
-                    ingresarNumeros();
-                    break;
-                case 2:
-                    mostrarOrdenados();
-                    break;
-                case 3:
-                    System.out.println("");
-                    Menu menuPrincipal = new Menu();
-                    menuPrincipal.principal();
-                    break;
-                default:
-                    System.out.println("Opcion incorrecta. Intente de nuevo.\n");
+                switch (opcion) {
+                    case 1:
+                        ingresarNumeros();
+                        break;
+                    case 2:
+                        mostrarOrdenados();
+                        break;
+                    case 3:
+                        System.out.println("");
+                        Menu menuPrincipal = new Menu();
+                        menuPrincipal.principal();
+                        break;
+                    default:
+                        System.out.println("Opcion incorrecta. Intente de nuevo.\n");
+                }
+            } catch (InputMismatchException e) {
+                teclado.nextLine();
             }
         } while (opcion < 1 || opcion > 3);
     }
 
     public void ingresarNumeros() {
-        System.out.print("Ingrese el primer numero: ");
+        System.out.print("\nIngrese el primer numero: ");
         numeros[0] = teclado.nextInt();
         System.out.print("Ingrese el segundo numero: ");
         numeros[1] = teclado.nextInt();
@@ -62,18 +68,18 @@ public class MayorMenor {
 
         for (i = 0; i < numeros.length - 1; i++) {
             for (j = 0; j < numeros.length - i - 1; j++) {
-                if (numeros[j + 1] < numeros[j]) {
+                if (numeros[j + 1] > numeros[j]) {
                     aux = numeros[j + 1];
                     numeros[j + 1] = numeros[j];
                     numeros[j] = aux;
                 }
             }
         }
-        mostrarOrdenados();
     }
 
     public void mostrarOrdenados() {
-        for(Integer mostrar: numeros){
+        System.out.println("\nLos numeros ordenados de mayor a menor son: ");
+        for (Integer mostrar : numeros) {
             System.out.println(mostrar);
         }
         menu();
