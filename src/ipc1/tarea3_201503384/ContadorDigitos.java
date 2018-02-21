@@ -45,6 +45,8 @@ public class ContadorDigitos {
     }
 
     public void ingresarNumero() {
+        //cada vez que el usuario ingrese un numero menor que 0 o mayor que 100000 le volvera a pedir
+        //el valor
         do {
             System.out.print("\nIngrese un numero entre 0 y 100000: ");
             numero = teclado.nextInt();
@@ -52,7 +54,7 @@ public class ContadorDigitos {
                 System.out.println("Error, rango invalido. Intentelo de nuevo.");
             }
         } while(numero < 0 || numero > 100000);
-        contarDigitos(numero);
+        contarDigitos(numero);          //el numero ingresado se manda como parametro al metodo
         menu();
     }
 
@@ -61,10 +63,12 @@ public class ContadorDigitos {
         menu();
     }
 
+    //el metodo recibe como parametro un valor numerico
     public void contarDigitos(int numero) {
         while (numero > 0) {
-            numero = numero / 10;
-            contador++;
+            numero = numero / 10;   //se divide entre 10 el numero ingresado y luego este ocupa su lugar
+            contador++;             //cada vez que se divida entre 10 se aumenta en 1 el contador, el cual
+                                    //indica los digitos que tiene el numero ingresado
         }
     }
 }
