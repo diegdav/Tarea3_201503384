@@ -43,19 +43,33 @@ public class Promedio {
                         break;
                     default:
                         System.out.println("Opcion incorrecta. Intente de nuevo.\n");
+                        menu();
                 }
             } catch (InputMismatchException e) {
                 teclado.nextLine();
             }
-        } while (opcion < 1);
+        } while (opcion < 1 || opcion > 3);
     }
 
     public void ingresar() {
-        int i, j;
+        int i, j, nota, contador;
+        contador = 1;
         for (i = 0; i < 6; i++) {
+            System.out.print("\nIngrese el id del estudiante: ");
+            notas[i][0] = teclado.nextInt();
             for (j = 1; j < 5; j++) {
-                System.out.print("Ingrese la nota del estudiante " + (i + 1) + ": ");
-                notas[i][j] = teclado.nextInt();
+                do {
+                    System.out.print("Ingrese la nota " + contador + " del estudiante " + notas[i][0] + ": ");
+                    nota = teclado.nextInt();
+                    if (nota < 0 || nota > 100) {
+                        System.out.println("\nDebe de ingresar una nota menor a 100 y mayor a 0");
+                    }
+                } while (nota < 0 || nota > 100);
+                notas[i][j] = nota;
+                contador++;
+                if (contador == 5) {
+                    contador = 1;
+                }
             }
         }
         calcularPromedio();
@@ -72,7 +86,6 @@ public class Promedio {
         }
         for (fila = 0; fila < 6; fila++) {
             for (columna = 0; columna < 6; columna++) {
-                notas[fila][0] = (fila + 1);
                 System.out.print(notas[fila][columna] + "\t");
             }
             System.out.println("");
@@ -83,7 +96,7 @@ public class Promedio {
     public void calcularPromedio() {
         int fila, columna;
         for (fila = 0; fila < 6; fila++) {
-            for (columna = 0; columna < 5; columna++) {
+            for (columna = 1; columna < 5; columna++) {
                 notas[fila][5] += notas[fila][columna];
             }
             notas[fila][5] = notas[fila][5] / 4;
