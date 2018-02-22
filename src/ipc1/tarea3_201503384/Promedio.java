@@ -38,6 +38,7 @@ public class Promedio {
                         break;
                     case 3:
                         System.out.println("");
+                        
                         Menu menuPrincipal = new Menu();
                         menuPrincipal.principal();
                         break;
