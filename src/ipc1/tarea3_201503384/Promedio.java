@@ -93,7 +93,7 @@ public class Promedio {
         for (fila = 0; fila < 6; fila++) {                                      
             for (columna = 0; columna < 6; columna++) {
                 System.out.print(notas[fila][columna] + "\t");                  //recorre la matriz notas y las muestra, dejando tabulacion por cada 
-            }                                                                   //columna
+            }                                                                   //columna, esto para que no quueden juntos los valores de cada columna
             System.out.println("");
         }
         menu();
