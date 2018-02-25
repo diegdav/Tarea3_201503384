@@ -49,10 +49,21 @@ puede capturar, en este caso es un valor no numerico.
                         menu();
                         break;
                     case 2:
-                        usuariosAscendente();
+                        if (nombre_usuario[0] == null) {
+                            System.out.print("\nDebe de ingresar de primero los usuarios.");
+                            System.out.println("");
+                            menu();
+                        } else {
+                            usuariosAscendente();
+                        }
                         break;
                     case 3:
-                        usuariosDescendente();
+                        if (nombre_usuario[0] == null) {
+                            System.out.println("\nDebe de ingresar de primero los usuarios.");
+                            menu();
+                        } else {
+                            usuariosDescendente();
+                        }
                         break;
                     case 4:
                         System.out.println("");
@@ -87,6 +98,7 @@ puede capturar, en este caso es un valor no numerico.
                 //si hay alguno repetido
                 if (nombre_prueba.equalsIgnoreCase(nombre_usuario[i])) {
                     System.out.println("\nEste usuario ya ha sido ingresado");
+                    ingresarUsuarios();
                     break;      //se usa para que cuando se cumpla la condicion se salga del for
                     //y no recorra todas las posiciones
                 } else {
