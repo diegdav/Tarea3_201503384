@@ -35,7 +35,15 @@ public class MayorMenor {
                         ingresarNumeros();
                         break;
                     case 2:
-                        mostrarOrdenados();
+                        int i;
+                        for (i = 0; i <numeros.length; i++){
+                            if (numeros[i] == 0) {
+                                System.out.println("\nDebe de ingresar de primero los numeros");
+                                menu();
+                            } else {
+                                mostrarOrdenados();
+                            }
+                        }
                         break;
                     case 3:
                         System.out.println("");
@@ -66,22 +74,22 @@ public class MayorMenor {
     public void ordenarNumeros(int numero1, int numero2, int numero3) {
         int i, j, aux;
 
-        for (i = 0; i < numeros.length - 1; i++) {
-            for (j = 0; j < numeros.length - i - 1; j++) {
-                if (numeros[j + 1] > numeros[j]) {
-                    aux = numeros[j + 1];
-                    numeros[j + 1] = numeros[j];
-                    numeros[j] = aux;
-                }
+        for (i = 0; i < numeros.length - 1; i++) {                              //se recorre el for hasta el tamaño del array - 1 
+            for (j = 0; j < numeros.length - i - 1; j++) {                      //se recorre el for hasta el tamaño del array -i-1 para que no exceda el tamaño
+                if (numeros[j + 1] > numeros[j]) {                              //del array. Si el numero en la posicion j+1 es mayor al de la posicion j
+                    aux = numeros[j + 1];                                       //entonces se guarda en una variable auxiliar, esto para que no se borre ya que
+                    numeros[j + 1] = numeros[j];                                //el valor de j+1 sera sustituido por el valor de j, y luego el valor de j es
+                    numeros[j] = aux;                                           //sustituido por el valor de la variable auxiliar, es decir, del anterior j+1
+                }                                                               
             }
         }
     }
 
     public void mostrarOrdenados() {
         System.out.println("\nLos numeros ordenados de mayor a menor son: ");
-        for (Integer mostrar : numeros) {
-            System.out.println(mostrar);
-        }
+        for (Integer mostrar : numeros) {                                       //Se utiliza el for each para que pueda recorrer el arreglo ya ordenado
+            System.out.println(mostrar);                                        //y luego se imprima. Para formarlo se pone el tipo de arreglo y el nombre que se
+        }                                                                       //quiera poner los valores del arreglo y luego se coloca el nombre del arreglo
         menu();
     }
 }
