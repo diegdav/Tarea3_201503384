@@ -52,7 +52,7 @@ public class Menu {
                         System.out.println("Opcion incorrecta. Intente de nuevo.\n");
                         principal();
                 }
-            } catch (InputMismatchException e){
+            } catch (InputMismatchException e){                                 //se utiliza para que el usuario pueda ingresar solo valores numericos
                 System.out.println("");
                 teclado.nextLine();
             }
