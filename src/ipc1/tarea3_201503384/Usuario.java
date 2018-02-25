@@ -41,7 +41,7 @@ puede capturar, en este caso es un valor no numerico.
                 switch (opcion) {
                     case 1:
                         //el contador define la cantidad de elementos que hay dentro de la matriz
-                        if (contador == 5) {
+                        if (contador == 5) {                                    //si ya se tienen los 5 valores de los usuarios ya no se puede ingresar
                             System.out.println("\nEspacio de usuarios lleno.");
                         } else {
                             ingresarUsuarios();
