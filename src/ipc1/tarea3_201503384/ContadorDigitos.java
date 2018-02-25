@@ -64,7 +64,7 @@ public class ContadorDigitos {
     }
 
     //el metodo recibe como parametro un valor numerico
-    public void contarDigitos(int numero) {
+    public void contarDigitos(int numero) {                                     //recibe como parametro un valor entero
         while (numero > 0) {
             numero = numero / 10;   //se divide entre 10 el numero ingresado y luego este ocupa su lugar
             contador++;             //cada vez que se divida entre 10 se aumenta en 1 el contador, el cual
