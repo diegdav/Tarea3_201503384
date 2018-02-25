@@ -15,8 +15,8 @@ public class Tarea3 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Menu menu = new Menu();
-        menu.principal();
+        Menu menu = new Menu();                 //se crea un objeto del tipo Menu, es decir se crea un objeto de la clase menu.
+        menu.principal();                       //el objeto creado manda a llamar al metodo principal de la clase menu.
     }
     
 }
