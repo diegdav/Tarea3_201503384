@@ -67,11 +67,11 @@ public class MayorMenor {
         System.out.print("Ingrese el tercer numero: ");
         numeros[2] = teclado.nextInt();
 
-        ordenarNumeros(numeros[0], numeros[1], numeros[2]);
+        ordenarNumeros(numeros[0], numeros[1], numeros[2]);                     //se mandan como parametro los valores ingresados
         menu();
     }
 
-    public void ordenarNumeros(int numero1, int numero2, int numero3) {
+    public void ordenarNumeros(int numero1, int numero2, int numero3) {         //solicita tres valores enteros para poder usar el metodo
         int i, j, aux;
 
         for (i = 0; i < numeros.length - 1; i++) {                              //se recorre el for hasta el tamaño del array - 1 
